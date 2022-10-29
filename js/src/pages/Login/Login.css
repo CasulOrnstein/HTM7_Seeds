@@ -2,9 +2,8 @@
 
 .login-page-container {
     background-color: #E6F2E8;
-    background-image: url(https://cdn.discordapp.com/attachments/352217625193086986/1035953278120374333/background.png);
-    background-size: 400px 400px;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
     text-align: center;
     padding: 1em;
     height: 100%;

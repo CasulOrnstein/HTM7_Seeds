@@ -1,5 +1,11 @@
-.App {
-  text-align: center;
+.wrapper {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  background-color: #E6F2E8;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -35,4 +41,67 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.lhs {
+  margin: 24px;
+}
+
+.folder-container {
+  width: 100%;
+  position: relative;
+}
+
+.folder-tabs {
+  position: absolute;
+  display: flex;
+  gap: 16px;
+  top: 35px;
+  left: 40px;
+  font-size: 1.5rem;
+}
+
+.folder-tab {
+  padding: 8px 32px;
+  background: rgb(227 228 143);
+  border-radius: 10px;
+  border: solid 10px rgb(228 227 125);
+  transform: skew(-1deg, 1deg);
+  box-shadow: 4px -2px 12px 0px rgb(103 103 103 / 64%);
+  cursor: pointer;
+}
+
+.folder-tab.selected {
+  border: solid 10px rgb(212 175 89 / 65%);
+}
+
+.folder-contents {
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  margin: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:auto 1fr;
+  gap: 32px;
+  width: 820px;
+  height: 600px;
+  overflow-y: scroll;
+  padding-right: 40px;
+}
+
+
+.notebook-container {
+  margin-right: -80px;
+  position: relative;
+}
+
+.notebook-contents {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  margin: 24px;
+  width: 550px;
+  height: 850px;
+  overflow-y: scroll;
 }

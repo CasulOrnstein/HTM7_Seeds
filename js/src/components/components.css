@@ -1,0 +1,58 @@
+@keyframes gentle-sway {
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+.card {
+  background: rgba(239, 239, 227, 0.806);
+  border-radius: 10px;
+  border: solid 10px rgba(224, 223, 183, 0.806);
+  transform: skew(-2deg, 1deg);
+  margin: 10px;
+  box-shadow: 5px 5px 17px 2px rgba(103,103,103,0.64);
+}
+
+.seed-display {
+  width: 100%;
+  aspect-ratio: 1/1;
+  box-sizing: border-box;
+  position: relative;
+  background: rgba(239, 239, 227, 0.806);
+  border-radius: 10px;
+  border: solid 10px rgba(224, 223, 183, 0.806);
+  transform: skew(-2deg, 1deg);
+  margin: 10px;
+  box-shadow: 5px 5px 17px 2px rgba(103,103,103,0.64);
+}
+
+.main-image {
+  width: 90%;
+  top: 5%;
+  left: 5%;
+  position: absolute;
+}
+
+.seed-image {
+  width: 25%;
+  bottom: 5%;
+  right: 5%;
+  position: absolute;
+}
+
+.user-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  animation: gentle-sway 4s infinite linear;
+}
+
+.user-main-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: center;
+  margin: 0 8px;
+}

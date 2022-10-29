@@ -4,6 +4,8 @@ import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import '../Login/Login.css';
 
+import background from '../../images/abstract_background.png'
+
 import { FirebaseAppContext } from '../../contexts/FirebaseContext';
 import { createNewUserIfNotExist } from '../../utils/firestore';
 
@@ -24,7 +26,7 @@ export const Login = ({ setUser, user }) => {
   }
 
   return (
-  <div className="login-page-container">
+  <div className="login-page-container" style={{ backgroundImage: `url(${background})`}}>
     <h1>Sowing is growing</h1>
     <img className="page-logo" alt="page logo" src="https://cdn.discordapp.com/attachments/352217625193086986/1035923267673923675/sunflower.png"/>
     <div class="login-container">

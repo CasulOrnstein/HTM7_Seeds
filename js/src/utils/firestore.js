@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc } from 'firebase/firestore/lite';
+import { collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore/lite';
 
 async function createNewUser(db, userData) {
   const result = await setDoc(doc(db, 'users', userData.id), {
@@ -30,6 +30,22 @@ export async function getUserData(db, userId) {
     console.error("Failed to get data")
     return null;
   }
+}
+
+export async function getAllUsersData(db) {
+  const usersSnapshot = await getDocs(collection(db, "users"));
+
+  const usersData = [] 
+  usersSnapshot.forEach((doc) => { usersData.push(doc.data()) })
+  
+  const updatedUsers = []
+  for (const userData of usersData) {
+    const inv = await getUserInventory(db, userData.id);
+
+    updatedUsers.push({ ...userData, inventory: inv })
+  };
+
+  return updatedUsers;
 }
 
 export async function getSeedData(db, seedId) {
