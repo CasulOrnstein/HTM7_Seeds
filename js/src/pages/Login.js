@@ -1,16 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
+import { FirebaseAppContext } from '../contexts/FirebaseContext';
+import { createNewUserIfNotExist } from '../utils/firestore';
+
 export const Login = ({ setUser, user }) => {
+  const firebaseApp = useContext(FirebaseAppContext);
+  const db = getFirestore(firebaseApp);
   const navigate = useNavigate();
   useEffect(() => {
     if(user) { navigate("/") }
   })
 
   const handleLogin = async () => {
-    const receivedUserData = await LoginWithGoogle();
-    if (receivedUserData) { setUser(receivedUserData) }
+    const googleUserData = await LoginWithGoogle();
+    if (googleUserData) {
+      const createdDbUser = await createNewUserIfNotExist(db, googleUserData);
+      setUser(createdDbUser)
+    }
   }
 
   return (
@@ -33,7 +42,7 @@ const LoginWithGoogle = async () => {
     // The signed-in user info.
     const user = result.user;
 
-    return { name: user.displayName, email: user.email };
+    return { id: user.uid, name: user.displayName, email: user.email };
   } catch (err) {
     console.log("Failed to login");
   }
