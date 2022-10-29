@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import './index.css';
+import { Login } from './pages/Login/Login';
 import Home from './pages/Home/Home';
-import { Login } from './pages/Login';
 import { FirebaseAppContext, initializeFirebaseApp } from './contexts/FirebaseContext';
 import { UserContext } from './contexts/UserContext';
 import { LoggedInGuard } from './components/LoggedInGuard';

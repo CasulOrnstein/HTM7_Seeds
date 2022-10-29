@@ -2,9 +2,10 @@ import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import '../Login/Login.css';
 
-import { FirebaseAppContext } from '../contexts/FirebaseContext';
-import { createNewUserIfNotExist } from '../utils/firestore';
+import { FirebaseAppContext } from '../../contexts/FirebaseContext';
+import { createNewUserIfNotExist } from '../../utils/firestore';
 
 export const Login = ({ setUser, user }) => {
   const firebaseApp = useContext(FirebaseAppContext);
@@ -23,12 +24,17 @@ export const Login = ({ setUser, user }) => {
   }
 
   return (
-    <div>
-      <button onClick={handleLogin}>
-        Login
-      </button>
+  <div className="login-page-container">
+    <h1>Sowing is growing</h1>
+    <img className="page-logo" alt="page logo" src="https://cdn.discordapp.com/attachments/352217625193086986/1035923267673923675/sunflower.png"/>
+    <div class="login-container">
+      <h2>Login with Google</h2>
+        <button className="google-btn" onClick={handleLogin}>
+        <img class="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+          Login
+        </button>
     </div>
-  )
+  </div>)
 }
 
 const LoginWithGoogle = async () => {
