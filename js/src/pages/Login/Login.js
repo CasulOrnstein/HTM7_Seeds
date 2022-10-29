@@ -4,8 +4,8 @@ import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import '../Login/Login.css';
 
-import { FirebaseAppContext } from '../contexts/FirebaseContext';
-import { createNewUserIfNotExist } from '../utils/firestore';
+import { FirebaseAppContext } from '../../contexts/FirebaseContext';
+import { createNewUserIfNotExist } from '../../utils/firestore';
 
 export const Login = ({ setUser, user }) => {
   const firebaseApp = useContext(FirebaseAppContext);
