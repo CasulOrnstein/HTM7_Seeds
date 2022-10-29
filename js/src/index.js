@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import './index.css';
-import App from './App';
+import Home from './pages/Home/Home';
 import { Login } from './pages/Login';
 import { FirebaseAppContext, initializeFirebaseApp } from './contexts/FirebaseContext';
 import { UserContext } from './contexts/UserContext';
@@ -24,7 +24,7 @@ const WrappedApp = () => {
     {
       path: "/",
       element: (
-        <LoggedInGuard><App/></LoggedInGuard>
+        <LoggedInGuard><Home/></LoggedInGuard>
       ),
     },
     {
