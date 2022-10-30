@@ -6,7 +6,6 @@ import '../Login/Login.css';
 
 import background from '../../images/abstract_background.png'
 import logo from '../../images/logo-test.png'
-import wood from '../../images/wood.png'
 
 import { FirebaseAppContext } from '../../contexts/FirebaseContext';
 import { createNewUserIfNotExist } from '../../utils/firestore';
