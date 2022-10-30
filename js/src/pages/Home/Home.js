@@ -32,7 +32,7 @@ function Home() {
       setUserInventory(seedInv);
       const seedWishlist = await getUserWishlist(db, user.id);
       setUserWishlist(seedWishlist);
-      const allUsersList = await getAllUsersData(db);
+      const allUsersList = await getAllUsersData(db, user.id);
       setUsersList(allUsersList);
     }
 
