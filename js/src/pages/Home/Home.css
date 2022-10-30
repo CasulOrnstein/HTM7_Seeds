@@ -43,6 +43,12 @@
   }
 }
 
+.welcome-title {
+  color: #426310;
+  padding-left: 1rem;
+  font-size: 3rem;
+}
+
 .lhs {
   margin: 24px;
 }
@@ -101,7 +107,13 @@
   top: 60px;
   left: 100px;
   margin: 24px;
-  width: 550px;
+  width: 570px;
   height: 850px;
   overflow-y: scroll;
+}
+
+.notebook-title {
+  color: #275e68;
+  padding-left: 1rem;
+  margin-bottom: 16px;
 }

@@ -5,7 +5,7 @@ import { FirebaseAppContext } from '../../contexts/FirebaseContext';
 import { UserContext } from '../../contexts/UserContext';
 import './Home.css';
 import { getUserData, getUserInventory, getUserWishlist, getAllUsersData } from '../../utils/firestore';
-import { SeedDisplay } from '../../components/SeedDisplay';
+import { AddSeedDisplay, SeedDisplay } from '../../components/SeedDisplay';
 
 import background from '../../images/abstract_background.png'
 import notebook from '../../images/notebook.png'
@@ -26,24 +26,24 @@ function Home() {
 
   useEffect(() => {
     async function getData () {
-      const result = await getUserData(db, user.id);
+      const result = await getUserData(db, user?.id);
       setUserData(result);
-      const seedInv = await getUserInventory(db, user.id);
+      const seedInv = await getUserInventory(db, user?.id);
       setUserInventory(seedInv);
-      const seedWishlist = await getUserWishlist(db, user.id);
+      const seedWishlist = await getUserWishlist(db, user?.id);
       setUserWishlist(seedWishlist);
-      const allUsersList = await getAllUsersData(db);
+      const allUsersList = await getAllUsersData(db, user?.id);
       setUsersList(allUsersList);
     }
 
     getData();
-  }, [user.id])
+  }, [user?.id])
 
 
   return (
     <div className="wrapper" style={{ backgroundImage: `url(${background})`}}>
       <div className="lhs">
-        <h1>Welcome {userData.name}</h1>
+        <h1 className="welcome-title">Welcome {userData.name}</h1>
         <Folder inventory={userInventory} wishlist={userWishlist} wishlistTabSelected={wishlistTabSelected} setWishlistTab={setWishlistTab}/>
         {/* <h1>Welcome {userData.name}</h1>
         <div>
@@ -56,7 +56,7 @@ function Home() {
         </div> */}
       </div>
       <div className="rhs">
-        <Notebook usersList={usersList} />
+        <Notebook usersList={usersList} userWishlist={userWishlist} />
       </div>
 
       
@@ -75,17 +75,18 @@ const Folder = ({ inventory, wishlist, wishlistTabSelected, setWishlistTab}) => 
     </div>
     <div className='folder-contents'>
       {displayedItems.map(seed => <SeedDisplay data={seed} />)}
+      <AddSeedDisplay/>
     </div>
   </div>)
 }
 
-const Notebook = ({usersList}) => {
+const Notebook = ({usersList, userWishlist}) => {
   return (<div className='notebook-container'>
     <img src={notebook}/>
     <div className='notebook-contents'>
-      <h2>Exchange</h2>
+      <h1 className='notebook-title'>Exchange</h1>
       <div className='notebook-items'>
-        {usersList.map(user => <UserExchangeItem userData={user}/>)}
+        {usersList.map(user => <UserExchangeItem userData={user} wishlist={userWishlist} />)}
       </div>
     </div>
   </div>)

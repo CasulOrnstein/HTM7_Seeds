@@ -1,7 +1,7 @@
 import './components.css'
 import { SeedDisplay } from './SeedDisplay';
 
-export const UserExchangeItem = ({ userData }) => {
+export const UserExchangeItem = ({ userData, wishlist }) => {
   const top3Items = userData.inventory.slice(0, 3);
 
   return (
@@ -11,7 +11,10 @@ export const UserExchangeItem = ({ userData }) => {
       </div>
       <div className='user-main-row'>
         <img src={userData.photo} className="user-image"/>
-        {top3Items.map(seed => <SeedDisplay data={seed} />)}
+        {top3Items.map(seed => {
+          const inWishlist = wishlist.some(wishlistedItem => wishlistedItem.name === seed.name);
+          return (<SeedDisplay data={seed} wishlisted={inWishlist} />)
+}       )}
       </div>
     </div>
   )

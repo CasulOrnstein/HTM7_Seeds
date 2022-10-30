@@ -5,6 +5,8 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import '../Login/Login.css';
 
 import background from '../../images/abstract_background.png'
+import logo from '../../images/logo-test.png'
+import wood from '../../images/wood.png'
 
 import { FirebaseAppContext } from '../../contexts/FirebaseContext';
 import { createNewUserIfNotExist } from '../../utils/firestore';
@@ -27,17 +29,23 @@ export const Login = ({ setUser, user }) => {
 
   return (
   <div className="login-page-container" style={{ backgroundImage: `url(${background})`}}>
-    <h1>Sowing is growing</h1>
-    <img className="page-logo" alt="page logo" src="https://cdn.discordapp.com/attachments/352217625193086986/1035923267673923675/sunflower.png"/>
-    <div class="login-container">
-      <h2>Login with Google</h2>
-        <button className="google-btn" onClick={handleLogin}>
-        <img class="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-          Login
-        </button>
-    </div>
+    {/* <h1 className="main-title">Sowing is growing</h1> */}
+    <div className="main-title">
+      <img src={logo} />
+    </div >
+    <LoginButton handleLogin={handleLogin} />
   </div>)
 }
+
+const LoginButton = ({ handleLogin }) => {
+  return (
+    <button className="google-btn" onClick={handleLogin}>
+      <img className="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+      Login with Google
+    </button>
+  )
+}
+
 
 const LoginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
