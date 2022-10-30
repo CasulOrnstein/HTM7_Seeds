@@ -31,6 +31,8 @@
 
 .main-image {
   width: 90%;
+  height: 90%;
+  object-fit: contain;
   top: 5%;
   left: 5%;
   position: absolute;
@@ -38,6 +40,8 @@
 
 .seed-image {
   width: 25%;
+  height: 25%;
+  object-fit: contain;
   bottom: 5%;
   right: 5%;
   position: absolute;
@@ -56,4 +60,9 @@
   align-items: center;
   margin: 0 8px;
   padding-right: 10px;
+}
+
+.user-title-row {
+  margin-left: 16px;
+  margin-top: 8px;
 }
