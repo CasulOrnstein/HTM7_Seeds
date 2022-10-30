@@ -56,7 +56,7 @@ function Home() {
         </div> */}
       </div>
       <div className="rhs">
-        <Notebook usersList={usersList} />
+        <Notebook usersList={usersList} userWishlist={userWishlist} />
       </div>
 
       
@@ -79,13 +79,13 @@ const Folder = ({ inventory, wishlist, wishlistTabSelected, setWishlistTab}) => 
   </div>)
 }
 
-const Notebook = ({usersList}) => {
+const Notebook = ({usersList, userWishlist}) => {
   return (<div className='notebook-container'>
     <img src={notebook}/>
     <div className='notebook-contents'>
       <h1 className='notebook-title'>Exchange</h1>
       <div className='notebook-items'>
-        {usersList.map(user => <UserExchangeItem userData={user}/>)}
+        {usersList.map(user => <UserExchangeItem userData={user} wishlist={userWishlist} />)}
       </div>
     </div>
   </div>)

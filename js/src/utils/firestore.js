@@ -45,8 +45,9 @@ export async function getAllUsersData(db, currerntUserId) {
   const updatedUsers = []
   for (const userData of usersData) {
     const inv = await getUserInventory(db, userData.id);
+    const wish = await getUserWishlist(db, userData.id)
 
-    updatedUsers.push({ ...userData, inventory: inv })
+    updatedUsers.push({ ...userData, inventory: inv, wishlist: wish })
   };
 
   return updatedUsers;

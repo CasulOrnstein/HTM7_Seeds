@@ -23,7 +23,7 @@
   position: relative;
   background: rgba(239, 239, 227, 0.806);
   border-radius: 10px;
-  border: solid 10px rgba(224, 223, 183, 0.806);
+  border: solid 6px rgba(224, 223, 183, 0.806);
   transform: skew(-2deg, 1deg);
   margin: 10px;
   box-shadow: 5px 5px 17px 2px rgba(103,103,103,0.64);
@@ -65,4 +65,12 @@
 .user-title-row {
   margin-left: 16px;
   margin-top: 8px;
+}
+
+.user-star {
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  right: -15%;
+  top: -7%;
 }
