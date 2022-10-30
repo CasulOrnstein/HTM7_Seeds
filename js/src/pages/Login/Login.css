@@ -10,11 +10,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 64px;
   }
 
 .page-logo {
     height: 200px;
     width: auto;
+}
+
+.main-title {
+    background-color: #eef9c9;
+    padding: 16px;
+    border-radius: 32px;
+    border: solid 10px #a3ce77;
 }
 
 .login-container{
@@ -25,6 +34,32 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.google-btn {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    align-items: center;
+    border: unset;
+    border-radius: 16px;
+    background: #426310;
+    color: whitesmoke;
+    font-size: 2rem;
+    box-shadow: 5px 5px 17px 2px rgba(103,103,103,0.64);
+    cursor: pointer;
+}
+
+.google-btn:hover {
+    background: #4d7513;
+    transform: translateY(2px);
+    box-shadow: 3px 3px 10px 2px rgba(103,103,103,0.64);
+}
+
+.google-icon {
+    background-color: whitesmoke;
+    border-radius: 50%;
+    padding: 8px;
 }
 
 

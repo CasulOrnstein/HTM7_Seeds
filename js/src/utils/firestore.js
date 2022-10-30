@@ -32,17 +32,22 @@ export async function getUserData(db, userId) {
   }
 }
 
-export async function getAllUsersData(db) {
+export async function getAllUsersData(db, currerntUserId) {
   const usersSnapshot = await getDocs(collection(db, "users"));
 
   const usersData = [] 
-  usersSnapshot.forEach((doc) => { usersData.push(doc.data()) })
+  usersSnapshot.forEach((doc) => {
+    const data = doc.data();
+    if (currerntUserId === data.id) { return }
+    usersData.push(data)
+  })
   
   const updatedUsers = []
   for (const userData of usersData) {
     const inv = await getUserInventory(db, userData.id);
+    const wish = await getUserWishlist(db, userData.id)
 
-    updatedUsers.push({ ...userData, inventory: inv })
+    updatedUsers.push({ ...userData, inventory: inv, wishlist: wish })
   };
 
   return updatedUsers;
