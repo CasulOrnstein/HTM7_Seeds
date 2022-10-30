@@ -5,6 +5,8 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import '../Login/Login.css';
 
 import background from '../../images/abstract_background.png'
+import logo from '../../images/logo-test.png'
+import wood from '../../images/wood.png'
 
 import { FirebaseAppContext } from '../../contexts/FirebaseContext';
 import { createNewUserIfNotExist } from '../../utils/firestore';
@@ -27,7 +29,10 @@ export const Login = ({ setUser, user }) => {
 
   return (
   <div className="login-page-container" style={{ backgroundImage: `url(${background})`}}>
-    <h1 className="main-title">Sowing is growing</h1>
+    {/* <h1 className="main-title">Sowing is growing</h1> */}
+    <div className="main-title">
+      <img src={logo} />
+    </div >
     <LoginButton handleLogin={handleLogin} />
   </div>)
 }
