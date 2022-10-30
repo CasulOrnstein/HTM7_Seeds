@@ -29,6 +29,28 @@
   box-shadow: 5px 5px 17px 2px rgba(103,103,103,0.64);
 }
 
+.add-seed-display {
+  width: 100%;
+  aspect-ratio: 1/1;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 10px;
+  background: rgba(239, 239, 227, 0.806);
+  margin: 10px;
+  border: dashed 6px rgba(157, 157, 141, 0.806);
+  transform: skew(-2deg, 1deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-seed-plus {
+  color: rgba(157, 157, 141, 0.806);
+  font-size: 10rem;
+  line-height: 10rem;
+}
+
 .main-image {
   width: 90%;
   height: 90%;

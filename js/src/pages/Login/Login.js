@@ -27,7 +27,7 @@ export const Login = ({ setUser, user }) => {
 
   return (
   <div className="login-page-container" style={{ backgroundImage: `url(${background})`}}>
-    <h1>Sowing is growing</h1>
+    <h1 className="main-title">Sowing is growing</h1>
     <LoginButton handleLogin={handleLogin} />
   </div>)
 }
@@ -35,7 +35,7 @@ export const Login = ({ setUser, user }) => {
 const LoginButton = ({ handleLogin }) => {
   return (
     <button className="google-btn" onClick={handleLogin}>
-      <img class="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+      <img className="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
       Login with Google
     </button>
   )

@@ -5,7 +5,7 @@ import { FirebaseAppContext } from '../../contexts/FirebaseContext';
 import { UserContext } from '../../contexts/UserContext';
 import './Home.css';
 import { getUserData, getUserInventory, getUserWishlist, getAllUsersData } from '../../utils/firestore';
-import { SeedDisplay } from '../../components/SeedDisplay';
+import { AddSeedDisplay, SeedDisplay } from '../../components/SeedDisplay';
 
 import background from '../../images/abstract_background.png'
 import notebook from '../../images/notebook.png'
@@ -75,6 +75,7 @@ const Folder = ({ inventory, wishlist, wishlistTabSelected, setWishlistTab}) => 
     </div>
     <div className='folder-contents'>
       {displayedItems.map(seed => <SeedDisplay data={seed} />)}
+      <AddSeedDisplay/>
     </div>
   </div>)
 }

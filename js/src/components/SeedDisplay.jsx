@@ -10,3 +10,11 @@ export const SeedDisplay = ({ data, wishlisted }) => {
     </div>
   )
 };
+
+export const AddSeedDisplay = () => {
+  return (
+    <div className="add-seed-display">
+      <div className="add-seed-plus">+</div>
+    </div>
+  )
+}

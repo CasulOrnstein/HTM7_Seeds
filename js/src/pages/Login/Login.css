@@ -19,6 +19,10 @@
     width: auto;
 }
 
+.main-title {
+    font-size: 5rem;
+}
+
 .login-container{
     background-color: lightgreen;
     padding: 32px;
