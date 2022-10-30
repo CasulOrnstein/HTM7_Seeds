@@ -28,16 +28,19 @@ export const Login = ({ setUser, user }) => {
   return (
   <div className="login-page-container" style={{ backgroundImage: `url(${background})`}}>
     <h1>Sowing is growing</h1>
-    <img className="page-logo" alt="page logo" src="https://cdn.discordapp.com/attachments/352217625193086986/1035923267673923675/sunflower.png"/>
-    <div class="login-container">
-      <h2>Login with Google</h2>
-        <button className="google-btn" onClick={handleLogin}>
-        <img class="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-          Login
-        </button>
-    </div>
+    <LoginButton handleLogin={handleLogin} />
   </div>)
 }
+
+const LoginButton = ({ handleLogin }) => {
+  return (
+    <button className="google-btn" onClick={handleLogin}>
+      <img class="google-icon" alt="Google logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+      Login with Google
+    </button>
+  )
+}
+
 
 const LoginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
